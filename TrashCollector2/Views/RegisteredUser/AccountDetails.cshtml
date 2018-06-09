@@ -1,0 +1,71 @@
+﻿@model TrashCollector2.Models.UserInfo
+@{
+    ViewBag.Title = "Account Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <h2>Account Details</h2>
+        <br />
+    </div>
+    @using (Html.BeginForm("SaveDetails", "RegisteredUser"))
+    {
+        <div class=" row form-group col-md-12">
+            <div class="col-md-4">
+                @Html.LabelFor(Model => Model.Name, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.Name, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.Address1, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.Address1, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.Address2, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.Address2, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.City, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.City, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.State, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.State, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.ZipCode, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.ZipCode, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12">
+            <div class="col-md-6">
+                @Html.LabelFor(Model => Model.PhoneNumber, new { @style = "font-size: 18px;" })
+                @Html.TextBoxFor(Model => Model.PhoneNumber, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class=" row form-group col-md-12 ">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" style="width:100px">Save</button>
+                @Html.ActionLink("Finish", "UserMenu", "RegisteredUser", null, new { @class = "btn btn-primary", style = "width:100px" })
+            </div>
+        </div>
+    }
+
+</div>

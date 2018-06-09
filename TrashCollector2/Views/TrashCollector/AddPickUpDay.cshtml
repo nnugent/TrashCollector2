@@ -1,0 +1,23 @@
+﻿@model TrashCollector2.Models.PickUpDay
+@{
+    ViewBag.Title = "Add Pick Up Day";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <h2>Add Pick Up Day</h2>
+    <br />
+    @using (Html.BeginForm("NewPickUpDay", "TrashCollector"))
+    {
+        <div class=" row form-group col-md-12 ">
+            @Html.LabelFor(Model => Model.Day, null, new { @style = "font-size:18px" })
+            @Html.TextBoxFor(Model => Model.Day, null, new { @class = "form-control" })
+        </div>
+
+        <div class=" row form-group col-md-12 ">
+            <button type="submit" class="btn btn-primary" style="width:100px">Save</button>
+            @Html.ActionLink("Finish", "EmployeeMenu", "TrashCollector", null, new { @class = "btn btn-primary", style = "width:100px" })
+        </div>
+    }
+</div>
+

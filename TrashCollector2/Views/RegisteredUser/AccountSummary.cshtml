@@ -1,0 +1,56 @@
+﻿@model TrashCollector2.Models.AccountSummaryViewModel
+@{
+    ViewBag.Title = "Account Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <h2 class="text-center">Account Summary</h2>
+
+    @using (Html.BeginForm("ChangePickUpDay", "RegisteredUser"))
+    {
+        <table class="table-hover table-striped table" style="width:100%; text-align:center; font-size:16px;">
+            <thead>
+                <tr>
+                    <th style="width:50%; text-align:center">Pick Up day</th>
+                    <th style="width:50%; text-align:center">Change Day</th>
+                </tr>
+            </thead>
+            <tbody style="padding-top:10px;">
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(m => m.BalanceInfo.PickUpDayId, new SelectList(Model.PickUpDays, "Id", "Day"), Model.BalanceInfo.PickUpDay.Day, new { @class = "form-control", @style = "padding: 5px; height: 35px; width: 150px; margin-left: auto; margin-right:auto;" })
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" style="width:100px; height: 35px; padding: 5px;">Save</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    <br />
+    <br />
+    <br />
+    @using (Html.BeginForm("MakePayment", "RegisteredUser"))
+    {
+        <table class="table-hover table-striped table" style="width:100%; text-align:center; font-size:16px;">
+            <tr>
+                <td style="width: 30%;">Balance Due:</td>
+                <td style="width: 30%; text-align:center;">$@Model.BalanceInfo.Balance</td>
+                <td style="width: 40%;">
+                    <form action="your-server-side-code" method="POST">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_g6do5S237ekq10r65BnxO6S0"
+                                data-amount=@Model.StripeBalance
+                                data-name="Pay Balance"
+                                data-description="Pay Off Your Balance"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto"
+                                data-zip-code="true">
+                        </script>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    }
+</div>

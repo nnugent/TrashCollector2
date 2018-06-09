@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Employee Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2 class="text-center">Employee Menu</h2>
+</div>
+
+<br />
+
+<div class="text-center">
+    <div class="row-fluid">
+        @Html.ActionLink("Add Pick-Up Day", "AddPickUpDay", "TrashCollector", null, new { @class = " btn btn-primary ", @style = " width: 200px " })
+    </div>
+    <br/>
+    <div class="row-fluid">
+        @Html.ActionLink("Change Trash Day", "ChangeCurrentDay", "TrashCollector", null, new { @class = " btn btn-primary ", @style = " width: 200px " })
+    </div>
+
+    <br />
+
+    <div class="row-fluid">
+        @Html.ActionLink("View All Pick Ups", "ViewAllPickUps", "TrashCollector", null, new { @class = " btn btn-primary ", @style = " width: 200px " })
+    </div>
+
+    <br />
+
+    <div class="row-fluid">
+        @Html.ActionLink("View My Pick Ups", "ViewMyPickUps", "TrashCollector", null, new { @class = " btn btn-primary ", @style = " width: 200px " })
+    </div>
+
+    <br />
+
+    <div class="row-fluid">
+        @Html.ActionLink("View Area Map", "ViewAreaMap", "TrashCollector", null, new { @class = " btn btn-primary ", @style = " width: 200px " })
+
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+﻿@model TrashCollector2.Models.UserInfo
+@{
+    ViewBag.Title = "Skip Weeks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Skip Weeks</h2>
+<h4>Enter how many weeks you would like to skip trash pick ups.</h4>
+@using (Html.BeginForm("SaveSkipWeeks", "RegisteredUser"))
+{
+    @Html.TextBoxFor(m => m.PickedUp, null, new { @class = "form-control" })
+    <br />
+    <button type="submit" class="btn btn-primary" style="width:100px; height: 35px; padding: 5px;">Save</button>
+}

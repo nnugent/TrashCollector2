@@ -1,0 +1,43 @@
+﻿@model TrashCollector2.Models.ChangeDayViewModel
+@{
+    ViewBag.Title = "Change Current Day";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <h2>Change Current Day</h2>
+
+    @if (Model.Days.Count > 0)
+    {
+        <table class="table-hover table-striped table" style="width:100%; text-align:center; font-size:16px;">
+            <thead>
+                <tr>
+
+                    <th style="width:50%; text-align:center">Day</th>
+                    <th style="width:50%; text-align:center">Change Day</th>
+                </tr>
+            </thead>
+            <tbody style="padding-top:10px;">
+                @{
+                    foreach (var el in Model.Days)
+                    {
+                        if (el.CurrentDay == true)
+                        {
+                            <tr style="">
+                                <td style="width:50%;padding-top:14px;">@el.Day</td>
+                                <td style="width:50%">
+                                    @Html.ActionLink("Next Day", "NextDay", "TrashCollector", null, new { @class = " btn alert-success ", @style = "padding: 5px" })
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3>You have no set pick up days. You must add one first!</h3>
+    }
+</div>

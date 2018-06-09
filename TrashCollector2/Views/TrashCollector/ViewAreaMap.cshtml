@@ -1,0 +1,36 @@
+﻿@model TrashCollector2.Models.ViewAreaMapViewModel
+@{
+    ViewBag.Title = "Area Map";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Area Map</h2>
+
+<style>
+    #map {
+        height: 400px;
+        width: 700px;
+    }
+</style>
+
+<div>
+    <div id="map" class="center-block"></div>
+
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 43.00117, lng: -88.2315 },
+                zoom: 8
+            });
+            @*for (var i = 0; i < @Model.Latitudes.Count(); i++) {
+                var marker = new google.maps.Marker({
+                    position: { lat: @Model.Latitudes[i]., lng: @Model.Longitude},
+                    map: map,
+                    title: "@Model.Name"
+                    });
+            }*@
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpTHZa5qE1VMQ9vGBJNeHuNo_XAYLUAGs&callback=initMap" async defer></script>
+</div>

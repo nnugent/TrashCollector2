@@ -1,0 +1,36 @@
+﻿@model TrashCollector2.Models.UserInfo
+@{
+    ViewBag.Title = "Pick Up Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Pick Up Location</h2>
+
+<style>
+    #map {
+        height: 400px;
+        width: 700px;
+    }
+</style>
+
+<div>
+    <div id="map" class="center-block"></div>
+    <h5>Address: @Model.Address1, @Model.City, @Model.State @Model.ZipCode</h5>
+
+    <script>
+        var map;
+        var marker;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 43.00117, lng: -88.2315 },
+                zoom: 8
+            });
+            marker = new google.maps.Marker({
+                position: { lat: @Model.Latitude, lng: @Model.Longitude},
+                map: map,
+                title: "@Model.Name"
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpTHZa5qE1VMQ9vGBJNeHuNo_XAYLUAGs&callback=initMap" async defer></script>
+</div>
