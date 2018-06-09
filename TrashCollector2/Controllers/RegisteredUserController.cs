@@ -154,7 +154,7 @@ namespace TrashCollector2.Controllers
                 UserDetails = model.UserDetails,
                 Days = model.Days
             };
-            return View("Success", viewModel);
+            return View("Success");
         }
 
         public ActionResult SetUpSkipWeeks()
