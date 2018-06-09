@@ -67,7 +67,7 @@ namespace TrashCollector2.Controllers
 
             if (CheckPhoneNumberFormat(userInfo.PhoneNumber))
             {
-                if (userInfo.UserId == "")
+                if (userInfo.UserId == "" || userInfo.UserId == null)
                 {
                     userInfo.UserId = userId;
                     userInfo.PickUpDayId = 1;
