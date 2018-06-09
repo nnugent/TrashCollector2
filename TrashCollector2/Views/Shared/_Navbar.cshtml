@@ -14,7 +14,10 @@
                 {
                     <li>@Html.ActionLink("Employee Menu", "EmployeeMenu", "TrashCollector")</li>
                 }
+                @if (Request.IsAuthenticated)
+                {
                 <li>@Html.ActionLink("User Menu", "UserMenu", "RegisteredUser")</li>
+                }
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
