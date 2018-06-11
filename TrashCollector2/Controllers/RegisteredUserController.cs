@@ -52,6 +52,15 @@ namespace TrashCollector2.Controllers
             var userId = User.Identity.GetUserId();
             var oldInfo = _context.UsersInfo.Where(m => m.UserId == userId).FirstOrDefault();
 
+            try
+            { 
+            userInfo.Id = oldInfo.Id;
+            }
+            catch
+            {
+
+            }
+
             var address = new AddressData();
             address.Address = userInfo.Address1 + " " + userInfo.Address2;
             address.City = userInfo.City;
@@ -67,11 +76,14 @@ namespace TrashCollector2.Controllers
 
             if (CheckPhoneNumberFormat(userInfo.PhoneNumber))
             {
-                if (userInfo.UserId == "" || userInfo.UserId == null)
+                if (userInfo.Id == 0)
                 {
                     userInfo.UserId = userId;
+                    userInfo.Latitude = point.Latitude;
+                    userInfo.Longitude = point.Longitude;
                     userInfo.PickUpDayId = 1;
                     _context.UsersInfo.Add(userInfo);
+                    _context.SaveChanges();
                 }
                 else
                 {
